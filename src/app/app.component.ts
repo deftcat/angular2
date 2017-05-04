@@ -81,6 +81,7 @@ const HEROES: Hero[] = [
 export class AppComponent implements OnInit{
   title = 'Tour of Heroes';
   ngOnInit(){
+
   	this.getHeroes();
   }
   // heroes = HEROES;
@@ -91,7 +92,8 @@ export class AppComponent implements OnInit{
     this.selectedHero = hero;
   }
   getHeroes():void{
+  	  	
   	// this.heroes = this.heroService.getHeroes();
-  	this.heroService.getHeroes().then(heroes=>this.heroes = heroes);
+  	this.heroService.getHeroes().then(heroes=>{this.heroes = heroes; console.log('trigge');});
   }
 }

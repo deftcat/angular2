@@ -5,4 +5,9 @@ import {HEROES} from './mock-hero';
 	getHeroes():Promise<Hero[]>{
 		return Promise.resolve(HEROES);
 	}
+	getHeroesSlowly():Promise<Hero[]>{
+		return new Promise(resolve => {
+			setTimeout(()=>{resolve(this.getHeroes()), 100000000000});
+		});
+	}
 }
