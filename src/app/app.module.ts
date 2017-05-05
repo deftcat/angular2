@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import {HeroDetailComponent} from './hero-detail.component';
 import {HeroesComponent} from './heroes.component';
-
+import {DashboardComponent} from './dashboard.component';
 import {HeroService } from './hero.service';
 import {RouterModule} from '@angular/router';
 
@@ -16,6 +16,7 @@ import {RouterModule} from '@angular/router';
     AppComponent,
     HeroDetailComponent,
     HeroesComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +25,13 @@ import {RouterModule} from '@angular/router';
     RouterModule.forRoot([{
       path : 'heroes',
       component : HeroesComponent,
-    }]),
+    },{
+      path : 'dashboard',
+      component: DashboardComponent,
+    }
+
+    ]),
+
   ],
   providers : [HeroService],
   bootstrap: [AppComponent]
