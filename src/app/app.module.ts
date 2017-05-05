@@ -28,6 +28,10 @@ import {RouterModule} from '@angular/router';
     },{
       path : 'dashboard',
       component: DashboardComponent,
+    },{
+      redirectTo:'/dashboard',
+      pathMatch: 'full',
+      path : '',
     }
 
     ]),
