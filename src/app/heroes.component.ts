@@ -40,7 +40,7 @@ export class HeroesComponent implements OnInit{
   getHeroes():void{
   	  	
   	// this.heroes = this.heroService.getHeroes();
-  	this.heroService.getHeroes().then(heroes=>{this.heroes = heroes; console.log('trigge');});
+  	this.heroService.getHeroes().then(heroes=>{this.heroes = heroes});
   }
   gotoDetail():void{
   	this.router.navigate(['./detail', this.selectedHero.id]);
