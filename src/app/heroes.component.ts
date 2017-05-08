@@ -5,21 +5,7 @@ import {Router} from '@angular/router'
  
 @Component({
   selector: 'my-heroes',
-  template: `
-    
-    <h2>My Heroes</h2>
-    <ul class="heroes">
-      <li *ngFor="let hero of heroes"
-        [class.selected]="hero === selectedHero"
-        (click)="onSelect(hero)">
-        <span class="badge">{{hero.id}}</span> {{hero.name}}
-      </li>
-    </ul>
-    <div *ngIf='selectedHero'>
-    	<h2>{{selectedHero.name}}</h2>
-		<button (click)='gotoDetail()'>See detail</button>
-    </div>
-  `,
+  templateUrl: 'heroes.component.html',
   styleUrls:['heroes.component.css'] ,
   // providers : [HeroService],
 })
