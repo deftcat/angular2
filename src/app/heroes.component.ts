@@ -33,7 +33,6 @@ export class HeroesComponent implements OnInit{
   }
   add(name :String):void{
     name = name.trim();
-
     if (!name){return;}
       this.heroService.create(name)
       .then(hero=>
@@ -42,6 +41,13 @@ export class HeroesComponent implements OnInit{
           this.selectedHero =null;
         }
           )
-
+  }
+  delete(hero : Hero):void{
+    this.heroService.delete(hero)
+      .then(()=>{
+        //for view
+        this.heroes = this.heroes.filter(h => h!== hero);
+        if(this.selectedHero === hero) this.selectedHero= null;
+      })
   }
 }
