@@ -34,10 +34,17 @@ import 'rxjs/add/operator/toPromise';
 	}
 	private headers = new Headers({'Content-Type' : 'application/json'});
 	update(hero : Hero):Promise<Hero>{
-		const url = `${this.heroUrl}/${hero.id}sss`;
+		const url = `${this.heroUrl}/${hero.id}`;
 		return this.http.put(url, JSON.stringify(hero), {headers : this.headers})
 			.toPromise()
 			.then(()=>hero)
+			.catch(this.handleError);
+	}
+	create(name : String):Promise<Hero>{
+		return this.http
+			.post(this.heroUrl, JSON.stringify({'name':name}), {headers : this.headers})
+			.toPromise()
+			.then(hero => hero.json().data as Hero)
 			.catch(this.handleError);
 	}
 
